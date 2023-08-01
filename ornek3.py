@@ -1,5 +1,8 @@
-def faktoriyel(x):
-    if x == 0:
+def faktoriyel(n):
+    if n==0 or n==1:
         return 1
     else:
-        return x * faktoriyel(x-1)
+        return n*faktoriyel(n-1)
+    print(faktoriyel(6))
+
+    
