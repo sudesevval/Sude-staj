@@ -1,12 +1,18 @@
 import string
-parola=input('Parolanızı oluşturun: ')
-rakamlar=string.digits
-semboller=string.punctuation
-kucuk_harfler=string.ascii_lowercase
-buyuk_harfler=string.ascii_uppercase
-if len(parola) in range(7,31) and parola!='parola': 
-    print("Parola kabul edildi")
-elif rakamlar==True and semboller==True and kucuk_harfler==True and buyuk_harfler==True:
-    print("Parolanız kabul edildi")
+def parola_sorgulama(parola):
+    if len(parola) < 7 or len(parola) > 30:
+        return False
+    if not any(char in string.ascii_uppercase for char in parola):
+        return False
+    if not any(char in string.ascii_lowercase for char in parola):
+        return False
+    if not any(char in string.digits for char in parola):
+        return False
+    if not any(char in string.punctuation for char in parola):
+        return False
+    return True
+parola = input("Parolanızı oluşturun: ")
+if parola_sorgulama(parola):
+    print("Parola geçerli.")
 else:
-    print("parola kabul edilmedi")
+    print("Parola geçerli değil. Tekrar denemelisin :)) ")
