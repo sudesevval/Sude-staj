@@ -1,9 +1,13 @@
 import sqlite3
+from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI
+from pydantic import BaseModel
+app = FastAPI()
 con = sqlite3.connect("tutorial.db")
 cur = con.cursor()
 res = cur.execute("SELECT name FROM sqlite_master")
 res.fetchone()
-('movies',)
+('movie',)
 res = cur.execute("SELECT name FROM sqlite_master WHERE name='spam'")
 res.fetchone() is None
 True
